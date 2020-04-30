@@ -27,13 +27,13 @@ class HashTable {
   // charCodeAt converts to "hash number"
   // Hash our key into the appropiate number
   hash(key){
-    let  total = 0;
-    for (let  i=0; i < key.length; i++){
+    let total = 0;
+    for (let i=0; i < key.length; i++){
       total += key.charCodeAt(i);
     }
     // We need to adapt it to our number of 
     // Buckets
-    let  bucket = total % this.numBuckets;
+    let bucket = total % this.numBuckets;
     // this is where we store it (the bucket)
     return bucket;
   }
@@ -42,7 +42,7 @@ class HashTable {
   // turn it into Hash node, 
   // then place it into the correct bucket 
   insert(key, value){
-    let  index =  this.hash(key);
+    let index =  this.hash(key);
     // console.log('INDEX', index)
     // If there is no node in that index, add a new one
     if (!this.buckets[index]) this.buckets[index] = new HashNode(key, value);
@@ -52,7 +52,7 @@ class HashTable {
     }
     // If there is a node, chain it with the other node values
     else {
-      let  currentNode = this.buckets[index];
+      let currentNode = this.buckets[index];
       while (currentNode.next){
         // Check if I'm in the last node of the chain
         if (currentNode.next.key === key) {
@@ -71,10 +71,10 @@ class HashTable {
   // Otherwise read each node until you find the key, then return the value
   // If there is no key return null
   get(key) {
-    let  index = this.hash(key);
+    let index = this.hash(key);
     if (!this.buckets[index]) return null;
     else {
-      let  currentNode = this.buckets[index];
+      let currentNode = this.buckets[index];
       while(currentNode){
         if (currentNode.key === key) return currentNode.value;
         currentNode = currentNode.next;
@@ -84,9 +84,9 @@ class HashTable {
   }
 
   retreiveAll(){
-    let  allNodes = [];
-    for (let  i = 0; i < this.numBuckets; i++){
-      let  currentNode = this.buckets[i];
+    let allNodes = [];
+    for (let i = 0; i < this.numBuckets; i++){
+      let currentNode = this.buckets[i];
       while(currentNode){
         allNodes.push(currentNode);
         currentNode = currentNode.next;
