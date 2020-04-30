@@ -105,7 +105,7 @@ myHT.insert('Dean', 'deanmachine@gmail.com');
 myHT.insert('Megan', 'megan2@gmail.com');
 
 
-console.log(myHT.retreiveAll());
+console.log(myHT.retreiveAll()); // returns [{"key":"Megan","value":"megan2@gmail.com","next":null},{"key":"Dean","value":"deanmachine@gmail.com","next":null}] 
 // console.log(myHT.get('Megan')); // returns megan2@gmail.com
 // console.log(myHT.hash('Becca')); // returns 12
 
